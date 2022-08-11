@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Hash;
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -19,17 +19,17 @@ class User extends Authenticatable
         'password',
         'name',
         'address',
-        'phone',
+        'phone'
     ];
 
-    public function listUser() 
+    public function listUser()
     {
-        return self::select('mail_address', 'password', 'name', 'address', 'phone',)
+        return self::select('mail_address', 'password', 'name', 'address', 'phone')
             ->orderBy('mail_address', 'ASC')
             ->paginate(20);
     }
 
-    public function createUser($request) 
+    public function create($request)
     {
         return self::create([
             'mail_address' => $request->mail_address,

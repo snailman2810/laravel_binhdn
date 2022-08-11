@@ -7,7 +7,7 @@
             </div>
         @endif
         @if (Session::get('fail'))
-            <div class="alert alert-success">
+            <div class="alert alert-danger">
                 {{ Session::get('fail') }}
             </div>
         @endif
@@ -31,7 +31,7 @@
             </tr>
             @endforeach
         </table>
-        <div>{{ $users->links() }}</div>  
-        <a href={{ route('users.create') }} class="btn btn-primary">Register</a>
+        <div>{{ $users->links() }}</div>
+        <a href="{{ route('users.create') }}" class="btn btn-primary">Quay lại</a>
     </div>
-@endsection 
+@endsection
