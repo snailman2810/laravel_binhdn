@@ -4,9 +4,9 @@ services:
     build:
       context: ./
       dockerfile: php.Dockerfile
-      container_name: laravel-basic-php-73
-      volumes:
-        - ./:/var/www/html
+    container_name: laravel-basic-php-73
+    volumes:
+      - ./:/var/www/html
 
   webserver:
     image: nginx:1.17.10
