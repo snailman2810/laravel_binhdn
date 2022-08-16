@@ -20,7 +20,7 @@ class UserFactory extends Factory
             'mail_address' => $this->faker->unique()->safeEmail(),
             'password' => Hash::make('abc'),
             'address' => $this->faker->address(),
-            'phone' => str::random(15),
+            'phone' => $this->faker->numerify('0###.###.###'),
         ];
     }
 }
