@@ -32,6 +32,6 @@
             @endforeach
         </table>
         <div>{{ $users->links() }}</div>
-        <a href="{{ route('users.create') }}" class="btn btn-primary">Quay lại</a>
+        <a href="{{ route('users.create') }}" class="btn btn-primary">Thêm mới</a>
     </div>
 @endsection

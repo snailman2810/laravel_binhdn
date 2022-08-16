@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Faker\Factory as Faker;
 use Hash;
 
 class UserFactory extends Factory
@@ -16,13 +15,11 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $faker = Faker::create();
-
         return [
-            'name' => $faker->name,
-            'mail_address' => $faker->unique()->safeEmail,
+            'name' => $this->faker->name(),
+            'mail_address' => $this->faker->unique()->safeEmail(),
             'password' => Hash::make('abc'),
-            'address' => $faker->address,
+            'address' => $this->faker->address(),
             'phone' => str::random(15),
         ];
     }
